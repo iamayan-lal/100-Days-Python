@@ -1,0 +1,87 @@
+#Data Types
+
+#String
+print("Hello"[0]) #Subscripting (index=0)
+print("Hello" + " " + "Ayan") #Concatenation of Strings
+
+#Integers
+print(145_555_778)
+
+#Floats (Decimal Numbers)
+print(7.08)
+
+#Boolean (Tells whether the output will be true or false)
+print(True)
+print(False)
+
+#We can not connect strings with integers
+type(1) #Tells the type of Data (Integer here)
+
+#Typecasting is changing from one data type to another data type
+num = input("Enter your age.")
+new_num = str(num)
+print("Your age is " + new_num + ".") #Typecasting from Integer to String
+
+#Coding Exercise
+two_digit_num = input("Enter a two digit number:")
+type(two_digit_num) #String
+
+first_digit = int(two_digit_num[0])
+second_digit = int(two_digit_num[1])
+
+print(first_digit + second_digit) #Sum of the digits of the number
+
+#Mathematical Operations
+#3+4 (Addition)
+#3-4 (Subtraction)
+#3*4 (Multiplication)
+#3/4 (Division)
+#2**2 (Exponentiation)
+#10%2 (Modulus)
+
+#PEMDAS (PRIORITY OF OPERATIONS) (If any of them clashes in single statement then we go from left to right to solve the questions)
+#1. Parentheses()
+#2. Exponents(**)
+#3. Multiplication(*) and Division(/)
+#5. Modulus(%)
+#6. Addition(+) and Subtraction(-)
+
+#BMI Calculator
+height = input("Enter your height in meters: ")
+weight = input("Enter your weight in killograms: ")
+BMI = int(weight)/float(height)**2
+print("Your BMI is " + str(BMI) + ".") #BMI Calculator
+BMI_as_int = int(BMI)
+
+#Round function is used to round the number to the nearest integer
+print(round(8/3)) #Output : 3
+print(round(8/3,2)) #Output : 2.67
+
+#Float Division
+print(8//3)
+
+#We can use += , -= , *= , /= to simplify the code
+#Example: x = x + 5 can be written as x += 5
+
+#F-String (F-Strings are used to format the string)
+name = "Ayan"
+age = 20
+print(f"Hello, my name is {name} and I am {age} years old.")
+
+#Coding Exercise
+age = input("Enter your current age :")
+years_left = 90 - int(age)
+months_left = years_left * 12
+weeks_left = years_left * 52
+days_left = years_left * 365
+print(f"You have {days_left} days, {weeks_left} weeks, and {months_left} months left.")
+
+#Tip Calculator
+print("Welcome to the Tip Calculator!")
+bill = float(input("What is the total bill ? $"))
+tip = float(input("What percentage would you like to give as a tip ? 10, 12 or 15? "))
+split = int(input("How many people are splitting the bill? "))
+tip_amount = (bill * tip) / 100
+total_bill = bill + tip_amount
+each_person_bill = total_bill / split
+print(f"Each person's bill is ${each_person_bill:.2f}.")
