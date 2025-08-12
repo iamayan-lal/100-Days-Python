@@ -1,0 +1,161 @@
+# IF ELSE STATEMENTS
+print("Welcome to the RollerCoaster")
+height = int(input("What is your height in cm? "))
+if height >= 120:
+    print("You can ride the rollercoaster!")
+else:
+    print("Sorry, you can't ride the rollercoaster!")
+
+#COMPARISON OPERATORS
+# == (equal to)
+# != (not equal to)
+# > (greater than)
+# < (less than)
+# >= (greater than or equal to)
+# <= (less than or equal to)
+
+#Coding Exercise (% Modulo gives whether a number is odd or even)
+number = int(input("Enter a number which you want to check: "))
+if number % 2 == 0:
+    print("The number is even.")
+else:
+    print("The number is odd.")
+
+#NESTED IF STATEMENTS
+age = int(input("How old are you? "))
+if age >= 18:
+    print("You are an adult.")
+    if age >= 65:
+        print("You are a senior citizen.")
+    else:
+        print("You are not a senior citizen.")
+else:
+    print("You are a minor.")
+
+#ELIF STATEMENTS
+if 1 == 1:
+    print("This will print because 1 is equal to 1")
+elif 2 == 2:
+    print("This will not print because the previous condition is true")
+else:
+    print("This will not print because the previous conditions are true")
+
+#Coding Exercise
+#BMI Calculator 2.0
+height = float(input("Enter your height in meters: "))
+weight = float(input("Enter your weight in kilograms: "))
+BMI = weight / (height ** 2)
+bmi = round(BMI)
+if bmi <18.5:
+    print("You are underweight.")
+elif bmi > 25:
+    print("You are overweight.")
+else:
+    print("You are normal weight.")
+
+#Coding Exercise (Finding the Leap Year)
+year = int(input("Enter a year which you want to check: "))
+if year % 4 == 0:
+    if year % 100 == 0:
+        if year % 400 == 0:
+            print("The year is a leap year.") 
+        else:
+            print("The year is not a leap year.")
+    else: 
+        print("The year is a leap year.")
+else:
+    print("The year is not a leap year.")
+
+#MULTIPLE IF STATEMENTS
+
+#Pizza Order Program
+print("Welcome to Pizza Deliveries !")
+small_pizza = 15
+medium_pizza = 20
+large_pizza = 25
+size = input("What size pizza do you want? S, M or L ?")
+add_pepproni = input("Do you want to add pepproni? Y or N ?")
+add_cheese = input("Do you want to add cheese? Y or N ?")
+if size == "S":
+    if add_pepproni == "Y":
+        if add_cheese == "Y":
+            print("Your total bill is $",small_pizza + 2 + 1)
+        else :
+            print("Your total bill is $",small_pizza + 2)
+    else: 
+        print("Your total bill is $",small_pizza)
+elif size == "M":
+    if add_pepproni == "Y":
+        if add_cheese == "Y":
+            print("Your total bill is $",medium_pizza + 2 + 1)
+        else:
+             print("Your total bill is $",medium_pizza + 2)
+    else:
+        print("Your total bill is $",medium_pizza)
+elif size == "L":
+    if add_pepproni == "Y":
+        if add_cheese == "Y":
+            print("Your total bill is $",large_pizza + 2 + 1)
+        else:
+            print("Your total bill is $",large_pizza + 2)
+    else:
+        print("Your total bill is $",large_pizza)
+else:
+     print("Invalid size. Please choose S, M or L")
+
+#LOGICAL OPERATORS
+#AND Operator (and) - Both conditions must be true
+#OR Operator (or) - Either condition must be true
+#NOT Operator (not) - The opposite of the condition
+
+#Love Calculator Program
+print("Welcome to the Love Calculator !")
+name1 = input("Enter your name: ")
+name2 = input("Enter your partner's name: ")
+combined_string = name1 + name2
+combined_string_lower = combined_string.lower()
+
+t = combined_string_lower.count("t")
+r = combined_string_lower.count("r")
+u = combined_string_lower.count("u")
+e = combined_string_lower.count("e")
+true = t + r + u + e
+l = combined_string_lower.count("l")
+o = combined_string_lower.count("o")
+v = combined_string_lower.count("v")
+e = combined_string_lower.count("e")
+love = l + o + v + e
+
+Love_Score = str(true) + str(love)
+love_Score = int(Love_Score)
+print(love_Score)
+
+if love_Score < 10 and love_Score > 90:
+    print(f"Your Love score is {love_Score} and You go together like coke and mentos")
+elif love_Score < 50 and love_Score > 40:
+    print(f"Your Love score is {love_Score} and You are alright together")
+else:
+    print(f"Your Love score is {love_Score}")
+
+#Treasure Island Project
+print("Welcome to Treasure Island!")
+print("Your mission is to find the treasure.")
+cross_road = input("You are at a cross road. Where would you like to go ? Left or Right ?")
+cross_road_lower = cross_road.lower()
+if cross_road_lower == "left":
+    print("You have come into a lake. There is an island in the middle of the lake.")
+    choice = input("Do you wish to 'swim' to the island or wait for the 'boat' ? Type 'swim' or 'boat'. ").lower()
+    if choice == "swim":
+        print("You have been attacked by a shark. Game Over")
+    else:
+        print("You have reached the island unharmed.")
+        print("There are 3 doors in front of you. Red , Yellow and Green. ")
+        door = input("Which door would you like to open ? Type 'red', 'yellow' or 'green' ").lower()
+        if door == "yellow":
+            print("You have found the treasure. Congratulations!")
+        elif door == "red":
+            print("You have found a dragon. Game Over.")
+        else :
+            print("There is no treasure. Game Over.")
+else:
+    print("You fell into a hole ! Game Over.")
