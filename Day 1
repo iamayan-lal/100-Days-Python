@@ -1,0 +1,46 @@
+#Printing Statement
+print("Day-1 Python Print Function")
+print("The function is declared like this:")
+print("print('what to print')")
+
+#String Manipulation and Code Intelligence
+print("Hello World \nHello World \nHello World")
+print("Hello" + " " + "Ayan")
+
+#String Concatenaion is merging of multiple strings in a single string.
+print("Hello, " + "How are you ?")
+
+#Debugging is finding the errors in our code.
+
+#Python Input Function
+name = input("Enter your name: ")
+print("Hello " + input("What is your name ? \n"))
+
+#Comments are statements that we do not want our system to read, its just for us to explain what the code is doing.
+#Use Ctrl + / to comment a line.
+
+#Using len() function to calculate the number of characters in a string.
+name = input("What is your name ? \n")
+print(len(name))
+
+#Variables are used to store values in a program.
+name = input("What is your name ? \n") #Here name is a variable and input is a function.
+
+a = input("Enter a number.")
+b = input("Enter another number.")
+c = a
+a = b
+b = c
+print("a =", a)
+print("b =", b) 
+
+#We can use underscore(_) for variable names if they are too long.
+#We can use numbers in variable names but not at the start.
+#We can use special characters in variable names but not at the start.
+#We can use a mix of letters and numbers in variable names.
+
+#Final Project of Day - 01
+print("Welcome to the Band Name Generator")
+city = input("What is the name of the place where you grew up ? \n")
+pet = input("What is the name of your pet ? \n")
+print("Your band name is " + city + " " + pet + ".")
