@@ -1,0 +1,87 @@
+# Random Module
+import random
+random_integer = random.randint(1,10)
+print(random_integer)
+
+#We can create and import modules.
+# import my_module
+# print(my_module.pi)
+
+#Random function to generate floating number.
+random_float = random.random()
+print(random_float)
+random_float_num = random_float * 5 # 0.000... - 4.9999999
+
+#Coding Exercise for Heads or Tails
+import random
+random_side = random.randint(0,1)
+if random_side == 0:
+    print("Heads")
+else:
+    print("Tails")
+
+#LISTS
+# List is a collection of items which are ordered and changeable. Lists are defined by square brackets
+fruits =["cherry", "apple", "banana"]
+print(fruits)
+print(fruits[0]) # prints the first item in the list
+print(fruits[-1]) # prints the last item in the list
+#We can edit the list items by :
+fruits[0] = "grape"
+print(fruits)
+fruits.append("Pear") #Adds an element in the list at the end.
+print(fruits)
+fruits.extend("Watermelon", "Pineapple") #Adds multiple elements in the list at the end.
+print(fruits)
+
+# Coding Exercise
+# Banker Roullete - Who will pay the bill ? PROGRAM
+name = input("Give me names of people who will pay the bill and separate them with comma : ")
+names = name.split(", ")
+import random
+#LEN() function is used to know number of elements in a list.
+print(len(names))
+num_items = len(names)
+#Random function to select a random number between 0 and num_items
+random_choice = random.randint(0, num_items - 1)
+print(names[random_choice]) #Prints the name of the person who will pay the bill.
+
+#-----------------------------------------------------------------------------------------------------------#
+
+#We can use the choice function to do the same code.
+print(random.choice(names)) #Prints the name of the person who will pay the bill.
+
+#Nested Lists
+#A list can contain another list as an element.
+fruits = ["Apple", "Banana", "Cherry"]
+vegetables = ["Potato", "Onion", "Capsicum"]
+mixture = [fruits, vegetables]
+
+#Code Challenge
+#Treasure Map
+row1 = [" ", " ", " "]
+row2 = [" ", " ", " "]
+row3 = [" ", " ", " "]
+map = [row1, row2, row3]
+print(f"{row1}\n{row2}\n{row3}")
+position = input("Where do you want to put the treasure.")
+column = int(position[0])
+row = int(position[1])
+selected_row = map[row - 1]
+selected_row[column - 1] = "x"
+print(f"{row1}\n{row2}\n{row3}")
+
+#Rock, Paper , Scissors Program
+import random
+user_input = int(input("Type 0 for Rock, 1 for Paper or 2 for Scissors : "))
+if user_input > 2 and user_input < 0:
+    print("Invalid input")
+computer_input = random.randint(0,2)
+if user_input == 0 and computer_input == 2:
+    print("You win!")
+elif user_input == 1 and computer_input == 0:
+    print("You win!")
+elif user_input == 2 and computer_input == 1:
+    print("You win!")
+else :
+    print("Computer wins!")
