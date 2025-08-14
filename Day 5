@@ -1,0 +1,99 @@
+# For loop
+fruits = ['Apple', 'Banana', 'Cherry']
+for fruit in fruits :
+    print(fruit)
+
+#Coding Exercise for Average Height
+student_heights = input("Input a list of students heights:").split()
+for n in range(0,len(student_heights)):
+    student_heights[n] = int(student_heights[n])
+print(student_heights)
+#Coding Exercise for Average Height
+total_height = 0
+for height in student_heights:
+    total_height += height
+print(total_height)
+total_students = 0
+for student in student_heights:
+    total_students += 1
+print(total_students)
+average_height = round(total_height/total_students)
+print(average_height)
+
+#Coding Challenge
+#Calculate the highest score in the list
+student_scores = input("Input a list of students scores:").split()
+for n in range(0,len(student_scores)):
+    student_scores[n] = int(student_scores[n])
+print(student_scores)
+hightest_score = 0
+for score in student_scores:
+    if score > hightest_score:
+        hightest_score = score
+print(f"The highest score is : {hightest_score}")
+
+#For loop with range
+for number in range(1,10):
+    print(number)
+for number in range(1,11,3): #start,stop,step 
+    print(number)
+
+#The sum of all even numbers from 1-100 program
+sum = 0
+for number in range(2,101,2):
+    sum += number
+    print(sum)
+
+#Fizz Buzz Coding Exercise
+for number in range(1,101):
+    if number % 3 == 0 and number % 5 == 0:
+        print("FizzBuzz")
+    elif number % 3 == 0:
+        print("Fizz")
+    elif number % 5 == 0:
+        print("Buzz")
+    else:
+        print(number)
+
+#PY - Password Generator
+import random
+letter = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+number = ['0','1','2','3','4','5','6','7','8','9']
+symbol = ['!','@','#','$','%','&','*','(',')','+']
+print("Welcome to the PyPassword Generator!")
+nr_letters = int(input("How many letters do you want in your password? \n"))
+nr_numbers = int(input("How many numbers would you like in your password? \n"))
+nr_symbols = int(input("How many symbols would you like in your password? \n"))
+#EASY METHOD
+# password = ""
+# for char in range(1, nr_letters + 1):
+#     random_char = random.choice(letter)
+#     password += random_char
+# for char in range(1, nr_numbers + 1):
+#     random_char = random.choice(number)
+#     password += random_char
+# for char in range(1, nr_symbols + 1):
+#     random_char = random.choice(symbol)
+#     password += random_char
+# print(password)
+
+#We can shuffle the password if it was in a list and use the shuffle function.
+
+#HARD METHOD
+password_list = []
+for char in range(1, nr_letters + 1):
+    random_char = random.choice(letter)
+    password_list.append(random_char)
+for char in range(1, nr_numbers + 1):
+    random_char = random.choice(number)
+    password_list.append(random_char)
+for char in range(1, nr_symbols + 1):
+    random_char = random.choice(symbol)
+    password_list.append(random_char)
+print(password_list)
+random.shuffle(password_list)
+print(password_list)
+password = ""
+for char in password_list:
+    password += char
+    print(password)
