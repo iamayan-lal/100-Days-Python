@@ -1,0 +1,80 @@
+# def format_name(f_name,l_name):
+#     if f_name == "" and l_name == "":
+#         return
+#     formatted_f_name = f_name.title()
+#     formatted_l_name = l_name.title()
+#     return f"Result: {formatted_f_name} {formatted_l_name}"
+# print(format_name(input("What is your First Name?"), input("What is your Last Name?")))
+#
+# def function_1(text):
+#     text = text.title()
+#     return text
+# def function_2(text):
+#     text = text.upper()
+#     return text
+# output = function_2(function_1("Ayan"))
+# print(output)
+#
+# #Coding Exercise Leap Year
+# def is_leap_year(year):
+#     # Write your code here.
+#     # Don't change the function name.
+#     if year % 4 == 0 :
+#         if year % 100 == 0 :
+#             if year % 400 == 0 :
+#                 return True
+#             else :
+#                 return False
+#         else :
+#             return True
+#     else:
+#         return False
+# is_leap_year(2400)
+#
+# #Docstrings
+# def docstring():
+#     """This function prints a docstring for a function."""
+# docstring()
+
+#Calculator Project
+def addition(a, b):
+    return a + b
+
+
+def subtract(a, b):
+    return a - b
+
+
+def multiply(a, b):
+    return a * b
+
+
+def division(a, b):
+    return a / b
+
+
+operations = {
+    "+": addition,
+    "-": subtract,
+    "*": multiply,
+    "/": division,
+}
+def calculator():
+    a = float(input("Enter first number: "))
+    should_accumulate = True
+    while should_accumulate:
+
+        for symbol in operations:
+            print(symbol)
+        operation = input("Enter operation that you want to perform: ")
+        b = float(input("Enter second number: "))
+        result = operations[operation](a,b)
+        print(f"{a} {operation} {b} = {result}")
+        response = input("Do you want to continue with the previous operation? Type Yes or No:\n").lower()
+        if response == "yes":
+            a = result
+        else :
+            should_accumulate = False
+            print(f"\n"* 20)
+            calculator()
+calculator()
