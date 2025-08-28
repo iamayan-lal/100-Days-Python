@@ -1,39 +1,14 @@
-# from turtle import Turtle, Screen
-# timmy = Turtle()
-# print(timmy)
-# timmy.shape("turtle")
-# timmy.pencolor("blue")
-# timmy.fillcolor("red")
-# timmy.forward(100)
-# my_screen = Screen()
-# print(my_screen.canvheight)
-# my_screen.exitonclick()
-# from prettytable import PrettyTable
-# table = PrettyTable()
-# table.add_column("Pokémon Name",["Pikachu","Squirtle","Charmander"])
-# table.add_column("Field Type",["Electric","Water","Fire"])
-# table.align = "l"
-#
-# print(table)
+from question_model import Question
+from data import question_data
+from quiz_brain import QuizBrain
+question_bank = []
+for question in question_data:
+    question_text = question['text']
+    question_answer = question['answer']
+    new_question = Question(question_text, question_answer)
+    question_bank.append(new_question)
 
-from menu import Menu, MenuItem
-from coffee_maker import CoffeeMaker
-from money_machine import MoneyMachine
-money_machine = MoneyMachine()
-coffee_maker = CoffeeMaker()
-menu = Menu()
-is_on = True
-while is_on:
-    options = menu.get_items()
-    choice = input(f"What would you like to have? {options}")
-    if choice == "off":
-        is_on = False
-    elif choice == "report":
-        coffee_maker.report()
-        money_machine.report()
-    else:
-        drink = menu.find_drink(choice)
-        if coffee_maker.is_resource_sufficient(drink):
-            money_machine.make_payment(drink.cost)
-            coffee_maker.make_coffee(drink)
-
+quiz = QuizBrain(question_bank)
+while quiz.still_has_questions():
+    quiz.next_question()
+print("You've completed the quiz")
