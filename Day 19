@@ -1,0 +1,57 @@
+#Turtle Race Game Project
+from turtle import Turtle, Screen
+import random
+screen = Screen()
+screen.setup(width= 500, height=400)
+
+user_bet = screen.textinput(title= "Make you bet!" , prompt="Which turtle will win the race? Enter a color: ")
+print(user_bet)
+
+colors = ["red", "yellow", "orange", "green", "blue", "purple", "brown"]
+y_positions = [-120,-80,-40,0,40,80,120]
+all_turtles = []
+
+for turtle_index in range(0,7):
+    new_turtle = Turtle("turtle",)
+    new_turtle.color(colors[turtle_index])
+    new_turtle.penup()
+    new_turtle.goto(-230,y_positions[turtle_index])
+    all_turtles.append(new_turtle)
+
+if user_bet:
+    is_race_on = True
+while is_race_on:
+    for turtle in all_turtles:
+        if turtle.xcor() > 230:
+            winning_color = (turtle.pencolor())
+            is_race_on = False
+            if user_bet == winning_color:
+                print(f"You have won!The {winning_color} color turtle wins!")
+            else:
+                print(f"You lose! the {winning_color} color turtle won!")
+
+        rand_distance = random.randint(1,10)
+        turtle.forward(rand_distance)
+
+
+screen.exitonclick()
+'''
+#Etch a Sketch App Project
+def move_forward():
+    tim.forward(20)
+def move_backward():
+    tim.backward(20)
+def turn_left():
+    tim.left(10)
+def turn_right():
+    tim.right(10)
+def clear_screen():
+    tim.reset()
+
+screen.listen()
+screen.onkey(key = "w", fun = move_forward)
+screen.onkey(key = "s", fun = move_backward)
+screen.onkey(key = "a", fun = turn_left)
+screen.onkey(key = "d", fun = turn_right)
+screen.onkey(key = "c", fun = clear_screen)
+'''
