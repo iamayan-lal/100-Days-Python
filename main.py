@@ -1,48 +1,44 @@
-from turtle import Screen, Turtle
-from paddle import Paddle
-from ball import Ball
-from scoreboard import Scoreboard
 import time
+from turtle import Screen
+from player import Player
+from car_manager import CarManager
+from scoreboard import Scoreboard
 
 screen = Screen()
-screen.bgcolor("black")
-screen.setup(width=800, height=600)
-screen.title("Pong")
+screen.setup(width=600, height=600)
 screen.tracer(0)
 
-r_paddle = Paddle((350, 0))
-l_paddle = Paddle((-350, 0))
-ball = Ball()
+player = Player()
+car_manager = CarManager()
 scoreboard = Scoreboard()
 
 screen.listen()
-screen.onkey(r_paddle.go_up, "Up")
-screen.onkey(r_paddle.go_down, "Down")
-screen.onkey(l_paddle.go_up, "w")
-screen.onkey(l_paddle.go_down, "s")
+screen.onkey(player.move, "Up")
 
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
-    ball.move()
+    car_manager.create_car()
+    car_manager.move_cars()
 
-    #Detect collision with wall
-    if ball.ycor() > 280 or ball.ycor() < -280:
-        ball.bounce_y()
+    for car in car_manager.all_cars:
+        if car.distance(player) < 20 :
+            game_is_on = False
+            scoreboard.game_over()
 
-    #Detect collision with paddle
-    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
-        ball.bounce_x()
+    if player.is_at_finish_point():
+        player.go_to_start()
+        car_manager.level_up()
+        scoreboard.increase_level()
 
-    #Detect R paddle misses
-    if ball.xcor() > 380:
-        ball.reset_position()
-        scoreboard.l_point()
 
-    #Detect L paddle misses:
-    if ball.xcor() < -380:
-        ball.reset_position()
-        scoreboard.r_point()
 
 screen.exitonclick()
+
+
+# Create a turtle player that starts at the bottom of the screen and listen for the "Up" keypress to move the turtle north.
+# Create cars that are 20px high by 40px wide that are randomly generated along the y-axis and move to the left edge of the screen. No cars should be generated in the top and bottom 50px of the screen (think of it as a safe zone for our little turtle). Hint: generate a new car only every 6th time the game loop runs.
+# Detect when the turtle player collides with a car and stop the game if this happens
+# Detect when the turtle player has reached the top edge of the screen (i.e., reached the FINISH_LINE_Y). When this happens, return the turtle to the starting position and increase the speed of the cars. Hint: think about creating an attribute and using the MOVE_INCREMENT to increase the car speed.
+# Create a scoreboard that keeps track of which level the user is on. Every time the turtle player does a successful crossing, the level should increase. When the turtle hits a car, GAME OVER should be displayed in the centre.
