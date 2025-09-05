@@ -1,32 +1,33 @@
-import turtle
+student_dict = {
+    "student": ["Angela", "James", "Lily"], 
+    "score": [56, 76, 98]
+}
+
+#Looping through dictionaries:
+for (key, value) in student_dict.items():
+    #Access key and value
+    pass
+
 import pandas
+student_data_frame = pandas.DataFrame(student_dict)
 
-screen = turtle.Screen()
-screen.title("U.S. States Game")
-image = "blank_states_img.gif"
-screen.addshape(image)
-turtle.shape(image)
+#Loop through rows of a data frame
+for (index, row) in student_data_frame.iterrows():
+    #Access index and row
+    #Access row.student or row.score
+    pass
 
-data = pandas.read_csv("50_states.csv")
-all_states = data.state.to_list()
-guessed_states = []
+# Keyword Method with iterrows()
+# {new_key:new_value for (index, row) in df.iterrows()}
 
-while len(guessed_states) < 50:
-    answer_state = screen.textinput(title=f"{len(guessed_states)}/50 States Correct",
-                                    prompt="What's another state's name?").title()
-    if answer_state == "Exit":
-        missing_states = []
-        for state in all_states:
-            if state not in guessed_states:
-                missing_states.append(state)
-        new_data = pandas.DataFrame(missing_states)
-        new_data.to_csv("states_to_learn.csv")
-        break
-    if answer_state in all_states:
-        guessed_states.append(answer_state)
-        t = turtle.Turtle()
-        t.hideturtle()
-        t.penup()
-        state_data = data[data.state == answer_state]
-        t.goto(state_data.x.item(), state_data.y.item())
-        t.write(answer_state)
+#TODO 1. Create a dictionary in this format:
+''''{"A": "Alfa", "B": "Bravo"}'''
+data = pandas.read_csv("nato_phonetic_alphabet.csv")
+phonetic_dict = {row.letter: row.code for (index,row) in data.iterrows()}
+print(phonetic_dict)
+
+#TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+word = input("Enter a word: ").upper()
+output_list = [phonetic_dict[letter] for letter in word]
+print(output_list)
+
