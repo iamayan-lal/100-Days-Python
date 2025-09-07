@@ -1,33 +1,30 @@
-student_dict = {
-    "student": ["Angela", "James", "Lily"], 
-    "score": [56, 76, 98]
-}
+from tkinter import *
+window = Tk()
+window.title("Miles to Km Project")
+window.config(padx=20, pady=20)
 
-#Looping through dictionaries:
-for (key, value) in student_dict.items():
-    #Access key and value
-    pass
+def miles_to_km():
+    miles = float(miles_input.get())
+    km = miles * 1.60934
+    kilometer_result_label.config(text=km)
 
-import pandas
-student_data_frame = pandas.DataFrame(student_dict)
+miles_input = Entry(width=7)
+miles_input.grid(row = 1, column = 0)
 
-#Loop through rows of a data frame
-for (index, row) in student_data_frame.iterrows():
-    #Access index and row
-    #Access row.student or row.score
-    pass
+miles_label = Label(text = "Miles")
+miles_label.grid(row = 1, column = 1)
 
-# Keyword Method with iterrows()
-# {new_key:new_value for (index, row) in df.iterrows()}
+is_equal_label = Label(text = "is equal to")
+is_equal_label.grid(row = 2, column = 0)
 
-#TODO 1. Create a dictionary in this format:
-''''{"A": "Alfa", "B": "Bravo"}'''
-data = pandas.read_csv("nato_phonetic_alphabet.csv")
-phonetic_dict = {row.letter: row.code for (index,row) in data.iterrows()}
-print(phonetic_dict)
+kilometer_result_label = Label(text = "0")
+kilometer_result_label.grid(row = 2, column = 1)
 
-#TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-word = input("Enter a word: ").upper()
-output_list = [phonetic_dict[letter] for letter in word]
-print(output_list)
+kilometer_label = Label(text = "Km")
+kilometer_label.grid(row = 2, column = 2)
 
+calculate_button = Button(text = "Calculate",command = miles_to_km)
+calculate_button.grid(row = 3, column = 1)
+
+
+window.mainloop()
